@@ -6,7 +6,7 @@ export const register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-    const user = User.findOne(email);
+    const user = await User.findOne({email});
     if (user) {
       return res
         .status(400)
