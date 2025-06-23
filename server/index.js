@@ -5,12 +5,16 @@ import { connectDB } from "./db.js";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import videoRoutes from "./routes/videoRoutes.js";
+import { limiter } from "./middleware/rateLimiter.js";
+import helmet from "helmet";
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(limiter);
+app.use(helmet());
 
 app.use("/auth", authRoutes);
 
