@@ -39,7 +39,7 @@ const UploadPage = () => {
 
       const token = sessionStorage.getItem("token");
       const res = await axios.post(
-        "http://localhost:9999/videos/upload-video",
+        "https://strmly-assignment-backend.onrender.com/videos/upload-video",
         data,
         {
           headers: {

@@ -16,7 +16,7 @@ const Home = () => {
 
     const fetchVideos = async () => {
       try {
-        const res = await axios.get("http://localhost:9999/videos/", {
+        const res = await axios.get("https://strmly-assignment-backend.onrender.com/videos/", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

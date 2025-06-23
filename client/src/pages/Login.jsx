@@ -22,7 +22,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:9999/auth/login",
+        "https://strmly-assignment-backend.onrender.com/auth/login",
         formData
       );
       sessionStorage.setItem("token", res.data.token)

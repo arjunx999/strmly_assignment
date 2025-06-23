@@ -23,7 +23,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:9999/auth/register",
+        "https://strmly-assignment-backend.onrender.com/auth/register",
         formData
       );
       Navigate("/login");
