@@ -11,13 +11,14 @@ export const uploadVideo = async (req, res) => {
     const newVideo = await Video.create({
       title,
       content,
-      author: req.user._id,
+      author: req.user._id || req.user.id,
       video_url: req.file.path,
     });
 
     res.status(201).json(newVideo);
   } catch (error) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: error.message });
+    console.log(error)
   }
 };
 
@@ -29,7 +30,7 @@ export const getAll = async (req, res) => {
 
     res.status(200).json(videos);
   } catch (error) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -44,6 +45,6 @@ export const getVideo = async (req, res) => {
 
     res.status(200).json(video);
   } catch (error) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: error.message });
   }
 };
